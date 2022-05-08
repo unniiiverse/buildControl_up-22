@@ -10,6 +10,16 @@ $light-grey: #DADEDF;
 $blue: #036FC7;
 $white: #ffffff;
 
+$p-8: 8px;
+$p-16: 16px;
+$p-24: 24px;
+$p-32: 32px;
+$p-40: 40px;
+$p-52: 52px;
+$p-80: 80px;
+$p-128: 128px;
+$p-140: 140px;
+
 //! ==================== BODY
 
 * {
@@ -17,9 +27,14 @@ $white: #ffffff;
     color: $dark;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .text {
     font-size: 16px;
     color: $dark;
+    line-height: 24px;
 
     &-light {
         font-size: 16px;
@@ -29,6 +44,8 @@ $white: #ffffff;
     &-heading {
         font-size: 32px;
         color: $dark;
+        margin-bottom: 16px;
+        line-height: 48px;
     }
 
     &-title {
@@ -39,6 +56,38 @@ $white: #ffffff;
     &-description {
         font-size: 20px;
         color: $grey;
+        margin-bottom: 32px;
+        max-width: 860px;
+    }
+
+    &-accent {
+        font-size: 20px;
+        line-height: 32px;
+        position: relative;
+        display: inline-block;
+        color: transparent;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        &::before {
+            width: 100%;
+            height: 16px;
+            background-color: #FFD042;
+        }
+
+        &::after {
+            content: attr(data-accentText);
+            color: $dark;
+            width: 120%;
+            bottom: 0;
+        }
     }
 }
 
@@ -47,6 +96,10 @@ $white: #ffffff;
         padding: 12px 32px;
         border-radius: 4px;
 
+        &:focus {
+            outline: #036FC7;
+        }
+
         &_demoOrder {
             background-color: $dark;
             border: 2px solid $dark;
@@ -54,7 +107,8 @@ $white: #ffffff;
             transition: .2s ease-in-out;
             transition-property: background-color, border-color, color;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-color: $white;
                 color: $dark;
                 border-color: $light-grey;
@@ -68,7 +122,8 @@ $white: #ffffff;
             transition: .2s ease-in-out;
             transition-property: background-color, border-color, color;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-color: $dark;
                 color: $white;
                 border-color: $dark;
@@ -80,7 +135,16 @@ $white: #ffffff;
 .wrapper {
     max-width: 1100px;
     width: 100%;
-    padding: 0 26px;
+    padding: 0 $p-24;
+    margin: 0 auto;
+}
+
+.burger-menu {
+    display: none;
+}
+
+section {
+    padding: $p-40 0;
 }
 
 // === header
@@ -94,17 +158,17 @@ $white: #ffffff;
         width: 100%;
         background-color: $white;
 
-        padding: 26px 30px;
+        padding: $p-24 $p-32;
 
         &-logo {
             display: flex;
             align-items: center;
 
             svg {
-                margin-right: 8px;
+                margin-right: $p-8;
             }
 
-            p {
+            a {
                 font-size: 22px;
                 text-transform: uppercase;
             }
@@ -115,10 +179,11 @@ $white: #ffffff;
 
             &_link {
                 color: $grey !important;
-                padding: 0 11px;
+                padding: 0 $p-16;
                 transition: .2s ease-in-out color;
 
-                &:hover {
+                &:hover,
+                &:focus {
                     color: $blue !important;
                 }
             }
@@ -127,6 +192,7 @@ $white: #ffffff;
 
     &-body {
         padding-top: calc(96px + 74px);
+        margin-bottom: $p-128;
 
         .wrapper {
             display: flex;
@@ -138,13 +204,105 @@ $white: #ffffff;
             font-size: 48px;
             text-align: center;
             max-width: 818px;
-            margin-bottom: 32px;
+            margin-bottom: $p-32;
+            line-height: 64px;
         }
 
         &-btns {
+            margin-bottom: $p-80;
+
             .bc-btn:nth-child(1) {
-                margin-right: 16px;
+                margin-right: $p-16;
             }
+        }
+
+        img {
+            margin-bottom: $p-32;
+            width: 100%;
+            height: 100%;
+            min-width: 600px;
+        }
+    }
+
+    &-bottom {
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        &-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 $p-24;
+            text-align: center;
+
+            &:nth-child(1) {
+                margin-left: 0;
+            }
+
+            &:nth-child(3) {
+                margin-right: 0;
+            }
+
+            img {
+                margin-bottom: $p-24;
+            }
+
+            .text-title {
+                margin-bottom: $p-8;
+            }
+        }
+    }
+}
+
+// === s-1
+
+.s-1 {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        img {
+            margin-bottom: $p-32;
+            width: 100%;
+            height: 100%;
+            min-width: 600px;
+        }
+    }
+}
+
+#s-1TOs-2 {
+    margin: $p-128 auto;
+    max-width: 780px;
+    text-align: center;
+}
+
+.s-2 {
+    .wrapper {
+        display: flex;
+
+        .text {
+            &-heading {
+                max-width: 480px;
+            }
+
+            &-description {
+                max-width: 540px;
+            }
+        }
+    }
+
+    &-right {
+        img {
+            margin-bottom: $p-32;
+            width: 100%;
+            height: 100%;
+            min-width: 300px;
+            max-width: 600px;
         }
     }
 }

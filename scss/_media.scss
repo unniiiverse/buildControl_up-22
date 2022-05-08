@@ -12,6 +12,10 @@
             height: 18px;
             cursor: pointer;
 
+            &:focus {
+                outline: 2px solid $grey;
+            }
+
             // Button icon
             span,
             &::before,
@@ -78,8 +82,8 @@
 
             .burger-btn {
                 position: absolute;
-                top: 44px;
-                right: 30px;
+                top: 40px;
+                right: 45px;
 
                 span,
                 &::before,
@@ -109,8 +113,6 @@
     }
 
     .buttonTransform {
-        z-index: 10;
-        
         span {
             transform: scale(0) translate(0, -50%) !important;
         }
@@ -132,6 +134,92 @@
         &_link,
         .bc-btn {
             display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .s-2 {
+        .wrapper {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .header {
+        &-bottom {
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            &-card {
+                min-width: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        &-body {
+            margin-bottom: $p-52;
+
+            h1 {
+                font-size: 32px;
+                line-height: 36px;
+            }
+        }
+    }
+
+    .text {
+        &-heading {
+            font-size: 24px;
+            line-height: 28px;
+            margin: $p-52 0 !important;
+        }
+
+        &-description {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .header {
+        &-body {
+            margin-bottom: $p-52;
+
+            &-btns {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .bc-btn {
+                    &:nth-child(1) {
+                        margin: 0 0 $p-16;
+                    }
+                }
+            }
+        }
+    }   
+
+    #s-1TOs-2 {
+        margin: $p-52 auto;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .header {
+        &-menu {
+            &-logo {
+                a {
+                    display: none;
+                }
+            }
         }
     }
 }
