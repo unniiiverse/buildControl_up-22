@@ -139,6 +139,18 @@
     }
 }
 
+@media screen and (max-width: 1200px) {
+    #s-7-createdForBuilding-pic {
+        opacity: .5;
+    }
+
+    .s-7 {
+        .wrapper {
+            padding-left: $p-32;
+        }
+    }
+}
+
 @media screen and (max-width: 870px) {
     .s-2 {
         .wrapper {
@@ -166,6 +178,17 @@
         &-cards {
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+    }
+
+    .s-7 {
+        &-cards {
+            justify-content: center;
+        }
+
+        &-card {
+            margin: $p-24 0;
+            max-width: 100%;
         }
     }
 }
@@ -271,6 +294,14 @@
 
     #s-1TOs-2 {
         margin: $p-52 auto;
+    }
+
+    .s-7 {
+        &-btns {
+            .bc-btn_demoOrder {
+                margin: 0 0 $p-16;
+            }
+        }
     }
 }
 
