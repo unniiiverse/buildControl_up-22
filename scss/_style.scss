@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-$burger-breakpoint: 1230px;
+$burger-breakpoint: 1320px;
 
 $dark: #212B31;
 $grey: #72787D;
@@ -56,8 +56,9 @@ body {
     &-description {
         font-size: 20px;
         color: $grey;
-        margin-bottom: 32px;
+        margin: 0 auto 32px auto;
         max-width: 860px;
+        line-height: 32px;
     }
 
     &-accent {
@@ -74,6 +75,7 @@ body {
             position: absolute;
             left: 0;
             bottom: 0;
+            z-index: 1;
         }
 
         &::before {
@@ -85,7 +87,7 @@ body {
         &::after {
             content: attr(data-accentText);
             color: $dark;
-            width: 120%;
+            width: 100%;
             bottom: 0;
         }
     }
@@ -143,10 +145,6 @@ body {
     display: none;
 }
 
-section {
-    padding: $p-40 0;
-}
-
 // === header
 
 .header {
@@ -157,6 +155,7 @@ section {
         position: fixed;
         width: 100%;
         background-color: $white;
+        z-index: 2;
 
         padding: $p-24 $p-32;
 
@@ -192,7 +191,7 @@ section {
 
     &-body {
         padding-top: calc(96px + 74px);
-        margin-bottom: $p-128;
+        margin-bottom: $p-80;
 
         .wrapper {
             display: flex;
@@ -217,14 +216,19 @@ section {
         }
 
         img {
-            margin-bottom: $p-32;
             width: 100%;
             height: 100%;
             min-width: 600px;
         }
+
+        #header-bodyNTH1 {
+            margin-bottom: $p-40;
+        }
     }
 
     &-bottom {
+        margin-bottom: $p-128;
+
         .wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -265,13 +269,17 @@ section {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
 
-        img {
-            margin-bottom: $p-32;
-            width: 100%;
-            height: 100%;
-            min-width: 600px;
-        }
+    .text-description {
+        margin-bottom: 40px;
+    }
+
+    img {
+        margin-bottom: $p-32;
+        width: 100%;
+        height: 100%;
+        min-width: 600px;
     }
 }
 
@@ -281,7 +289,11 @@ section {
     text-align: center;
 }
 
+// === s-2
+
 .s-2 {
+    margin-bottom: $p-80;
+
     .wrapper {
         display: flex;
 
@@ -304,5 +316,169 @@ section {
             min-width: 300px;
             max-width: 600px;
         }
+    }
+}
+
+// === s-3
+
+.s-3 {
+    border-top: 2px solid #EEF2F3;
+    border-bottom: 2px solid #EEF2F3;
+    margin-bottom: $p-80;
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        img {
+            margin: $p-24;
+        }
+    }
+}
+
+// === s-4
+
+.s-4 {
+    text-align: center;
+
+    &-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        &-left {
+            max-width: 550px;
+            text-align: left;
+
+            .text-title {
+                margin-bottom: $p-16;
+            }
+        }
+
+        &-right {
+            img {
+                width: 100%;
+                height: 100%;
+                min-width: 300px;
+                max-width: 500px;
+                margin-left: $p-40;
+            }
+        }
+    }
+
+    #s-4-cardNTH2 {
+        flex-direction: row-reverse;
+        margin: $p-40 0;
+
+        .s-4-card {
+            &-left {
+                text-align: right;
+            }
+
+            &-right {
+                img {
+                    margin: 0 $p-40 0 0;
+                }
+            }
+        }
+    }
+}
+
+// === s-5
+
+.s-5 {
+    text-align: center;
+    margin-bottom: $p-80;
+
+    &-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    &-card {
+        display: flex;
+        margin: $p-16;
+
+        svg {
+            min-width: 48px;
+            min-height: 48px;
+            margin-right: $p-16;
+        }
+
+        .text {
+            &-title {
+                margin-bottom: $p-8;
+            }
+        }
+    }
+}
+
+// === s-6
+
+.s-6 {
+    text-align: center;
+
+    .text-heading {
+        position: relative;
+        display: inline-block;
+
+        svg {
+            position: absolute;
+            bottom: 50%;
+            left: 95%;
+        }
+    }
+
+    .text-description {
+        margin-bottom: $p-40;
+    }
+
+    &-cards {
+        display: grid;
+        margin-bottom: $p-40;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 $p-24;
+        text-align: center;
+
+        &:nth-child(1) {
+            margin-left: 0;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2) {
+            margin-bottom: $p-24;
+        }
+
+        &:nth-child(3) {
+            margin-right: 0;
+        }
+
+        img {
+            margin-bottom: $p-24;
+        }
+
+        .text-title {
+            margin-bottom: $p-8;
+        }
+    }
+
+    &-getMore {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 45px $p-40;
+        background-color: #F6F8F9;
+        border-radius: 5px;
     }
 }
